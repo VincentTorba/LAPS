@@ -2,7 +2,7 @@
 
 	include_once("db.php");
 
-	function login($uname, $pwd, $grade)
+	function login($uname, $pwd)
 	{
 		$uname = secure($uname);
 		$pwd = secure(checksum($pwd));
