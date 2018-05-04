@@ -2,10 +2,11 @@
 
 	include_once("db.php");
 
-	function login($uname, $grade)
+	function login($uname, $pwd, $grade)
 	{
 		$uname = secure($uname);
-		$q = "SELECT * FROM tbl_users WHERE uname='$uname'";
+		$pwd = secure(checksum($pwd));
+		$q = "SELECT * FROM tbl_users WHERE uname='$uname'AND pwd_hash='$pwd'";
 		$arr = executeSQL($q);
 		return count($arr)>0;
 
