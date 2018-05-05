@@ -27,14 +27,12 @@
 
 		///3.update the current qid to qid +1
 			$newQid = $qid + 1;
-			$q3 = " UPDATE tbl_users SET qid = $new qid WHERE uname = '$uname'";
+			$q3 = " UPDATE tbl_users SET qid = $newQid WHERE uname = '$uname'";
+			executeSQL($q3);
+			
 
 		///4. return the download zip file hard code it
-			$map= array(
-				1 = >"prob1.tar"
-				2 = >"prob2.tar"
-				3 = >"prob.3tar"
-			);
+			 $map = array(1=>"prob1.tar",2=>"prob2.tar",3=>"prob3.tar");
 		return $map[$newqid];
 	}
 

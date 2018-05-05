@@ -3,14 +3,29 @@
 	include_once("common.php");
 
 	// Check what action is performed on the client side
-	if($_POST["action"]=="login") {
-		$user = $_POST["user"];
-		$pass = $_POST["pass"];
+	$op =  $_REQUEST["OP"];
+	if($op =="login") {
+		$user = $_REQUEST["user"];
+		$pass = $_REQUEST["pass"];
 		$res = login($user, $pass); // Call to common.php login function
 		echo $res; // Send response back to the user
-	} else if ($_POST["action"]=="submit") {
-		$uname = $_POST["uname"];
-		$grade = $_POST["grade"];
+	} 
+	else if($op == "runChallenge1")
+	{
+		$c = escapshellcmd("Scoreboard/Downloads/prob1/setup.py");
+		$execute = shell_exec($c);
+		echo $execute;	
+
+	}
+	else if ($op == "submitChallenge1")
+	{
+		$command = escapeshellcmd('ScoreBoard/challenges/grade.py');
+		$output = shell_exec($command);
+		echo $output;
+	}	
+	else if ($op =="submitAndGETNext") {
+		$uname = $_REQUEST["uname"];
+		$grade = $_REQUEST["grade"];
 		$res = submitAndGetNext($uname, $grade); // Call to common.php function
 		echo $res; // Sent the response back to the user
 	} else {

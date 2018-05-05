@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS db_posts;
+DROP DATABASE IF EXISTS db_laps;
 CREATE DATABASE db_laps;
 USE db_laps;
 CREATE TABLE tbl_users(
