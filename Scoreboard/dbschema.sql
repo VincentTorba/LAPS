@@ -14,4 +14,6 @@ CREATE TABLE tbl_scores(
 	score INT
 );
 
+INSERT INTO tbl_users (uname, qid, score) VALUES ('rocco', 'hello', '1');
+INSERT INTO tbl_users (uname, qid, score) VALUES ('vinny', 'hello2', '2');
 INSERT INTO tbl_scores (uname, qid, score) VALUES ('rocco', '4', '100');
