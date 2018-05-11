@@ -4,10 +4,10 @@
         <script>
             $(document).ready(function() {
                 $("#submitBtn").click(function() {
-					$.get("service.php?op=submitCurrentAndGetNext",
+					$.get("/service.php?op=submitCurrentAndGetNext",
 						function(data, status) {
 							if (data=="ok") {
-								// redirect
+								window.location="problem.html";
 							} else {
 								alert("ERROR");
 							}
