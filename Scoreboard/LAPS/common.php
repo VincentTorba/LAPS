@@ -6,7 +6,7 @@
 	{
 		$uname = secure($uname);
 		$pwd = secure(checksum($pwd));
-		$q = "SELECT * FROM tbl_users WHERE uname='$uname'AND pwd_hash='$pwd'";
+		$q = "SELECT * FROM tbl_users WHERE uname='$uname'AND pwd='$pwd'";
 		$arr = executeSQL($q);
 		return count($arr)>0;
 

@@ -1,5 +1,5 @@
 <?php
-#include_once("dp.php")
+
 
 function mylog($msg)
 {
@@ -64,11 +64,15 @@ function submitAndGetNext($uname)
 	runCmd("python PROBLEM/setup.py");
 	return "ok";
 }
-if(1==2)
-{
-	login("stu1","psw");
-	
 
+function checksum($txt){
+		return md5($txt);
+	}
+
+if(1==1)
+{
+	$link = submitAndGetNext("rocco");
+	print($link);
 }
 ?>
 
