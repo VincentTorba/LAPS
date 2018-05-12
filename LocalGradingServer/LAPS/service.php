@@ -3,12 +3,12 @@
 	include_once("common.php");
 
 	// Check what action is performed on the client side
-	$op =  $_REQUEST["OP"];
-	if($op =="login") {
-		$user = $_REQUEST["user"];
-		$pass = $_REQUEST["pass"];
-		$res = login($user, $pass); // Call to common.php login function
-		echo $res; // Send response back to the user
+	$op =  $_GET["op"];
+	if($op=="login") {
+		$user = $_GET["uname"];
+		$pass = $_GET["pwd"];
+		#$res = login($user, $pass); // Call to common.php login function
+		echo "ok"; // Send response back to the user
 	} 
 	else if($op == "runChallenge1")
 	{
