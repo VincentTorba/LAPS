@@ -14,7 +14,12 @@
 				var pwd = $("#txtPwd").val();
 				alert("verifypwd v2, uname: " + uname + 
 					"pwd: " + pwd);
-			    $.get("/service.php?op=login&uname="+uname+"&pwd="+pwd,
+			    $.get("service.php",
+					{
+						uname: uname,
+						pwd: pwd,
+						op: login
+					}
 			    	function(data, status){
 						if(data=="ok"){
 							//window.location = "problem.html";
