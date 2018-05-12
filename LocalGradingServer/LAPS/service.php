@@ -3,7 +3,7 @@
 	include_once("common.php");
 
 	// Check what action is performed on the client side
-	$op =  $_GET["op"];
+	$op = $_GET["op"];
 	if($op=="login") {
 		$user = $_GET["uname"];
 		$pass = $_GET["pwd"];
