@@ -7,8 +7,8 @@
 	if($op=="login") {
 		$user = $_GET["uname"];
 		$pass = $_GET["pwd"];
-		#$res = login($user, $pass); // Call to common.php login function
-		echo "ok"; // Send response back to the user
+		$res = login($user, $pass); // Call to common.php login function
+		echo $res;
 	} 
 	else if($op == "runChallenge1")
 	{

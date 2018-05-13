@@ -69,7 +69,7 @@ function checksum($txt){
 		return md5($txt);
 	}
 
-if(1==1)
+if(1==2)
 {
 	$link = submitAndGetNext("rocco");
 	print($link);

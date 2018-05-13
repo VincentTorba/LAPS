@@ -12,20 +12,12 @@
 			$("#btnSubmit").click(function() {
 				var uname = $("#txtUname").val();
 				var pwd = $("#txtPwd").val();
-				alert("verifypwd v2, uname: " + uname + 
-					"pwd: " + pwd);
-			    $.get("service.php",
-					{
-						uname: uname,
-						pwd: pwd,
-						op: login
-					}
+			    $.get("service.php?op=login&uname="+uname+"&pwd="+pwd,
 			    	function(data, status){
-						if(data=="ok"){
-							//window.location = "problem.html";
-							alert("service.php got the data");
+						if (data.search("ok")==-1) {
+							alert("bye");
 						} else {
-							alert("something or other happened");
+							alert("hello");
 						}
 				});
 			});
