@@ -53,7 +53,7 @@ function submitAndGetNext($uname)
 	mylog("step 2. grade is $grade \n");
 	
 	//2. submit to remote
-	$url = $server. "server.php?op=submitCurrentAndGetNextQ&uname=$uname&grade=$grade";
+	$url = $server. "service.php?op=submitCurrentAndGetNext&uname=$uname&grade=$grade";
 	mylog("step 3 submit grade: url: $url\n");
 	$link = submitReq($url);
 	mylog("step 4 link is $link\n");
