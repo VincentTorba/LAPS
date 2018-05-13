@@ -1,5 +1,5 @@
 <?php
-$server = "192.168.1.6/Scoreboard";
+$server = "192.168.1.6/Scoreboard/";
 $pracimg = "192.168.1.8";
 
 function mylog($msg)
