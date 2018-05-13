@@ -1,10 +1,4 @@
 <?php
-# REMOVE IT LATER!
-	$_REQUEST["op"] = "login";
-	$_REQUEST["uname"] = "rocco";
-	$_REQUEST["pwd"] = "hello";
-# ----- REMOVE ABOVE LATER
-
 	include_once("common.php");
 	$op=$_REQUEST["op"];
 	if($op=="login") {
@@ -16,7 +10,7 @@
 	else if($op=="submitCurrentAndGetNext") {
 		$uname=$_REQUEST["uname"];	
 		$grade=$_REQUEST["grade"];
-		$result = submitAndGetNextQ($uname);
+		$result = submitCurrentGetNextQ($uname,$grade);
 		echo $result;
 	}	
 	else {
