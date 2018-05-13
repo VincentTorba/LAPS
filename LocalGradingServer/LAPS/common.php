@@ -1,5 +1,6 @@
 <?php
-
+$server = "192.168.1.6/Scoreboard";
+$pracimg = "192.168.1.8";
 
 function mylog($msg)
 {
@@ -17,7 +18,7 @@ function submitReq($url)
 function login($uname, $pwd)
 {
 	//1. remote request
-	$server = "localhost/Scoreboard/";
+	global $server;
 	$url = $server."service.php?op=login&uname=$uname&pwd=$pwd";
 	$res = submitReq($url);
 	if($res!="ok") return $res;
