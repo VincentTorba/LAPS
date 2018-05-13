@@ -9,20 +9,7 @@
 		$pass = $_GET["pwd"];
 		$res = login($user, $pass); // Call to common.php login function
 		echo $res;
-	} 
-	else if($op == "runChallenge1")
-	{
-		$c = escapshellcmd("Scoreboard/Downloads/prob1/setup.py");
-		$execute = shell_exec($c);
-		echo $execute;	
-
-	}
-	else if ($op == "submitChallenge1")
-	{
-		$command = escapeshellcmd('ScoreBoard/challenges/grade.py');
-		$output = shell_exec($command);
-		echo $output;
-	}	
+	} 	
 	else if ($op =="submitAndGETNext") {
 		$uname = $_REQUEST["uname"];
 		$grade = $_REQUEST["grade"];
