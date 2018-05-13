@@ -39,6 +39,8 @@ function downloadExtract($link)
 	$url = $server."Downloads/$link";
 	$cmd = "wget $url -o /var/www/html/LAPS/$link";
 	runCmd($cmd);
+	$cmd2 = "tar -xvf /var/www/html/LAPS/tmp/$link -c Problem";
+	runCmd($cmd);	
 }
 
 function submitAndGetNext($uname)
