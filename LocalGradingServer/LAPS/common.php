@@ -43,10 +43,10 @@ function downloadExtract($link)
 {
 	global $server, $pracimg;
 	$url = $server."Downloads/$link";
-	$cmd = "wget $url -o /var/www/html/LAPS/$link";
+	$cmd = "wget $url -O /var/www/html/$link";
 	runCmd($cmd);
-	$cmd2 = "tar -xvf /var/www/html/LAPS/tmp/$link -c Problem";
-	runCmd($cmd);	
+	$cmd2 = "tar -xf /var/www/html/$link -C /var/www/html/PROBLEM --strip-components=2";
+	runCmd($cmd2);	
 }
 
 function submitAndGetNext($uname)
