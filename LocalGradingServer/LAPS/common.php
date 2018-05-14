@@ -11,7 +11,13 @@ function mylog($msg)
 
 function submitReq($url)
 {
-	$s = file_get_contents($url);
+	$ch = curl_init();
+	curl_setopt_array($ch, array(
+		CURLOPT_RETURNTRANSFER => 1,
+		CURLOPT_URL => $url
+	));
+	$s = curl_exec($ch);
+	//$s = file_get_contents($url);
 	return $s;
 }
 
@@ -21,7 +27,7 @@ function login($uname, $pwd)
 	global $server;
 	$url = $server."service.php?op=login&uname=$uname&pwd=$pwd";
 	$res = submitReq($url);
-	if($res!="ok") return $res;
+	if($res==0) return "failed";
 
 	//2. call the submitAndGetNext()
 	submitAndGetNext($uname);
