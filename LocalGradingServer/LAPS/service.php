@@ -10,7 +10,7 @@
 		$res = login($user, $pass); // Call to common.php login function
 		echo $res;
 	} 	
-	else if ($op =="submitAndGETNext") {
+	else if ($op =="submitAndGetNext") {
 		$uname = $_REQUEST["uname"];
 		$grade = $_REQUEST["grade"];
 		$res = submitAndGetNext($uname, $grade); // Call to common.php function

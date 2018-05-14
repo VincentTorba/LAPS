@@ -1,21 +1,28 @@
+<html>
+<head>
+<title>Problem 1</title>
+<script src="jquery-3.3.1.min.js"></script>
 <script>
-	function submit(){
-		$.post("../service.php",
-			{
-			op: "submitAndGetNext"
-			}
-			function(data, status){
-				if(data=="ok"){
-					window.location="/LAPS/PROBLEM/problem.html";
-					location.reload();
-				}else{
-					alert("ERROR ! data: " +data);
-				}
-			}
-		);
+	$(document).ready(function() {
+		$("#btnSubmit").click(function() {
+			$.get("../service.php?op=submitAndGetNext",
+				function(data, status){
+					if(data.search("ok")==-1){
+						alert("ERROR");
+					}else{
+						alert("hi");
+						window.location.replace("/PROBLEM/problem.html");
+					}
+				});
+			});
+		});
 
 </script>
+</head>
+<body>
 <h1>Problem1<h1>
 <p>Apache server is down fix it</p>
 
-<button type="button" onclick ="submit()">Submit</button>
+<button id="btnSubmit" type="button">Submit</button>
+</body>
+</html>
