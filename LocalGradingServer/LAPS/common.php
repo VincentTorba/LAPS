@@ -1,5 +1,5 @@
 <?php
-$server = "192.168.1.6/Scoreboard";
+$server = "192.168.1.6/Scoreboard/";
 $pracimg = "192.168.1.8";
 
 function mylog($msg)
@@ -11,7 +11,13 @@ function mylog($msg)
 
 function submitReq($url)
 {
-	$s = file_get_contents($url);
+	$ch = curl_init();
+	curl_setopt_array($ch, array(
+		CURLOPT_RETURNTRANSFER => 1,
+		CURLOPT_URL => $url
+	));
+	$s = curl_exec($ch);
+	//$s = file_get_contents($url);
 	return $s;
 }
 
@@ -21,7 +27,7 @@ function login($uname, $pwd)
 	global $server;
 	$url = $server."service.php?op=login&uname=$uname&pwd=$pwd";
 	$res = submitReq($url);
-	if($res!="ok") return $res;
+	if($res==0) return "failed";
 
 	//2. call the submitAndGetNext()
 	submitAndGetNext($uname);
@@ -37,10 +43,10 @@ function downloadExtract($link)
 {
 	global $server, $pracimg;
 	$url = $server."Downloads/$link";
-	$cmd = "wget $url -o /var/www/html/LAPS/$link";
+	$cmd = "wget $url -O /var/www/html/$link";
 	runCmd($cmd);
-	$cmd2 = "tar -xvf /var/www/html/LAPS/tmp/$link -c Problem";
-	runCmd($cmd);	
+	$cmd2 = "tar -xf /var/www/html/$link -C /var/www/html/PROBLEM --strip-components=2";
+	runCmd($cmd2);	
 }
 
 function submitAndGetNext($uname)
