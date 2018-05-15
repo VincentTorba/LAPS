@@ -39,7 +39,7 @@
 	function insertUser($uname, $pwd){
 		$uname = secure($uname);
 		$pwd = secure(checksum($pwd));
-		$q = "INSERT INTO tbl_users(uname, pwd) VALUES ('$uname', '$pwd')";
+		$q = "INSERT INTO tbl_users(uname, pwd, qid) VALUES ('$uname', '$pwd', 0);";
 		executeSQL($q);
 	}
 

@@ -15,9 +15,9 @@
 	}
 	else if(op=="register") {
 		$user = $_GET["uname"];
-  	    $pass = $_GET["pwd"];
-        $reg = register($user,$pwd);
-        echo $reg;
+  	    	$pass = $_GET["pwd"];
+        	$reg = register($user,$pass);
+        	echo $reg;
 	}	
 	else {
 		echo "unsupported op: $op";

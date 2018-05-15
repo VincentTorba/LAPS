@@ -19,7 +19,7 @@
 	else if ($op =="register") {
 		$user = $_GET["uname"];
 		$pass = $_GET["pwd"];
-		$reg = register($user,$pwd);
+		$reg = register($user,$pass);
 		echo $reg;
 	}
 	 else {

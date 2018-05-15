@@ -24,7 +24,7 @@ function submitReq($url)
 function register($user,$pass)
 {
 	global $server;
-	$url = $server."service.php?op=login&uname=$uname&pwd=$pwd";
+	$url = $server."service.php?op=register&uname=$user&pwd=$pass";
 	$reg = submitReq($url);
 	return $reg;
 }
