@@ -11,7 +11,10 @@
 		return count($arr)>0;
 
 	}
-
+	function register($uname,$pass) {
+		insertUser($uname,$pass);
+		echo ("ok");
+	}
 	function submitCurrentAndGetNextQ($uname, $grade){
 		$uname = secure($uname);
 		$grade = secure($grade); //secure defined in db.php

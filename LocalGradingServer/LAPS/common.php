@@ -21,6 +21,13 @@ function submitReq($url)
 	return $s;
 }
 
+function register($user,$pass)
+{
+	global $server;
+	$url = $server."service.php?op=login&uname=$uname&pwd=$pwd";
+	$reg = submitReq($url);
+	return $reg;
+}
 function login($uname, $pwd)
 {
 	//1. remote request
