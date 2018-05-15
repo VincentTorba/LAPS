@@ -45,7 +45,7 @@ function downloadExtract($link)
 	$url = $server."Downloads/$link";
 	$cmd = "wget $url -O /var/www/html/$link";
 	runCmd($cmd);
-	$cmd2 = "tar -xf /var/www/html/$link -C /var/www/html/PROBLEM --strip-components=2";
+	$cmd2 = "tar -xf /var/www/html/$link -C /var/www/html/PROBLEM --strip-components=1";
 	runCmd($cmd2);	
 }
 
