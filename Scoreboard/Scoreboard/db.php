@@ -41,7 +41,6 @@
 		$pwd = secure(checksum($pwd));
 		$qID = 0;
 		$q = "INSERT INTO tbl_users(uname, pwd, qid, pubKey) VALUES ('$uname', '$pwd','$qID','$publicKey')";
-		executeSQL($q);
 	}
 
 //TEST CASES
