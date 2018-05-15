@@ -36,10 +36,11 @@
 	function checksum($txt){
 		return md5($txt);
 	}
-	function insertUser($uname, $pwd){
+	function insertUser($uname, $pwd, $qID, $publicKey){
 		$uname = secure($uname);
 		$pwd = secure(checksum($pwd));
-		$q = "INSERT INTO tbl_users(uname, pwd) VALUES ('$uname', '$pwd')";
+		$qID = 0;
+		$q = "INSERT INTO tbl_users(uname, pwd, qid, pubKey) VALUES ('$uname', '$pwd','$qID','$publicKey')";
 		executeSQL($q);
 	}
 
