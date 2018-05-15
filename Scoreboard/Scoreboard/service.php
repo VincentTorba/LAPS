@@ -13,11 +13,11 @@
 		$result = submitCurrentAndGetNextQ($uname,$grade);
 		echo $result;
 	}
-	else if(op=="register") {
+	else if($op=="register") {
 		$user = $_GET["uname"];
-  	    	$pass = $_GET["pwd"];
-        	$reg = register($user,$pass);
-        	echo $reg;
+  	    $pass = $_GET["pwd"];
+        $reg = register($user,$pass);
+        echo $reg;
 	}	
 	else {
 		echo "unsupported op: $op";
