@@ -10,7 +10,7 @@
 	else if($op=="submitCurrentAndGetNext") {
 		$uname=$_GET["uname"];	
 		$grade=$_GET["grade"];
-		$result = submitCurrentGetNextQ($uname,$grade);
+		$result = submitCurrentAndGetNextQ($uname,$grade);
 		echo $result;
 	}	
 	else {
