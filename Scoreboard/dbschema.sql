@@ -5,7 +5,7 @@ CREATE TABLE tbl_users(
 	uname varchar(255),
 	pwd varchar(1024),
 	qid INT,
-	pubKey varchar(MAX)
+	pubKey varchar(60000)
 );
 
 
