@@ -16,6 +16,9 @@
 		$res = submitAndGetNext($uname, $grade); // Call to common.php function
 		echo $res; // Sent the response back to the user
 	}	
+	else if ($op =="score") {
+		$
+	}
 	else if ($op =="register") {
 		$user = $_GET["uname"];
 		$pass = $_GET["pwd"];
