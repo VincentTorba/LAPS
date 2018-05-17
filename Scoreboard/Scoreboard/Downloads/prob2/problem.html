@@ -4,12 +4,12 @@
         <script>
             $(document).ready(function() {
                 $("#submitBtn").click(function() {
-					$.get("/service.php?op=submitCurrentAndGetNext",
+					$.get("/service.php?op=submitAndGetNext",
 						function(data, status) {
-							if (data=="ok") {
-								window.location="problem.html";
-							} else {
+							if (data.search("ok")==-1) {
 								alert("ERROR");
+							} else {
+								window.location.replace("/PROBLEM/problem.html");
 							}
 					});
                 });
