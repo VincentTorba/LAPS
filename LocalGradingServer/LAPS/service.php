@@ -16,9 +16,6 @@
 		}
 		$uname = $_SESSION["uname"];
 		$res = submitAndGetNext($uname); // Call to common.php function
-		if ($res=="ok") {
-			header("Location: PROBLEM/problem.html");
-		}
 		echo $res; // Sent the response back to the user
 	}	
 	else if ($op =="register") {
