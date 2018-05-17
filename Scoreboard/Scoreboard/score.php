@@ -11,9 +11,9 @@ echo "<tr><th>uname</th><th>qid</th><th>score</th></tr>";
 for ($i=0; $i<count($arr); $i++)
 {
 	echo "<tr>";
-	foreach ($arr as $key => $val)
+	foreach ($arr as {$key} => {$val})
 	{
-		echo "<td>$val</td>";
+		echo "<td>{$key} => {$val}</td>";
 	}
 	echo "</tr>";
 }
