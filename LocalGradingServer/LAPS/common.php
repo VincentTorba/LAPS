@@ -41,6 +41,7 @@ function login($uname, $pwd)
 	//2. call the submitAndGetNext()
 	$_SESSION["uname"] = $uname;
 	submitAndGetNext($uname);
+	return "ok";
 }
 
 function runCmd($cmd)
