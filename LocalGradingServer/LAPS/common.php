@@ -5,7 +5,7 @@ $pracimg = "192.168.1.8";
 function mylog($msg)
 {
 	$myfile = fopen("logs.txt", "a");
-	fwrite($myfile, "\n", $msg);
+	fwrite($myfile, $msg);
 	fclose($myfile);
 }
 
