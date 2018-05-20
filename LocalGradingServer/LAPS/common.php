@@ -1,11 +1,13 @@
 <?php
+session_start();
+
 $server = "192.168.1.6/Scoreboard/";
 $pracimg = "192.168.1.8";
 
 function mylog($msg)
 {
 	$myfile = fopen("logs.txt", "a");
-	fwrite($myfile, "\n", $msg);
+	fwrite($myfile, $msg);
 	fclose($myfile);
 }
 
@@ -37,6 +39,7 @@ function login($uname, $pwd)
 	if($res==0) return "failed";
 
 	//2. call the submitAndGetNext()
+	$_SESSION["uname"] = $uname;
 	submitAndGetNext($uname);
 	return "ok";
 }
@@ -59,7 +62,7 @@ function downloadExtract($link)
 function submitAndGetNext($uname)
 {
 	global $server, $pracimg;
-	
+
 	//1. rn current grd script
 	mylog("step 1. getting grade\n");
 	$grade = runCmd("python PROBLEM/grade.py");

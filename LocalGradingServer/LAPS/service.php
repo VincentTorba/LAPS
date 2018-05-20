@@ -11,9 +11,11 @@
 		echo $res;
 	} 	
 	else if ($op =="submitAndGetNext") {
-		$uname = $_REQUEST["uname"];
-		$grade = $_REQUEST["grade"];
-		$res = submitAndGetNext($uname, $grade); // Call to common.php function
+		if (!isset($_SESSION["uname"])) {
+			header("Location: index.html");
+		}
+		$uname = $_SESSION["uname"];
+		$res = submitAndGetNext($uname); // Call to common.php function
 		echo $res; // Sent the response back to the user
 	}	
 	else if ($op =="register") {
