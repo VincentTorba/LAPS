@@ -35,7 +35,7 @@
 	//	openssl_private_decrypt($encrypted, $decrypted, $privKey);	
 
 		insertUser($uname,$pass,$qid,$pubKey);
-		echo ("ok");
+		echo ($privKey);
 	}
 	function submitCurrentAndGetNextQ($uname, $grade){
 		$uname = secure($uname);
