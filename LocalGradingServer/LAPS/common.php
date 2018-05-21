@@ -73,8 +73,10 @@ function submitAndGetNext($uname)
 	mylog("step 2. grade is $grade \n");
 	
 	//2. submit to remote
-	$url = $server. "service.php?op=submitCurrentAndGetNext&uname=$uname&grade=$grade";
+	$url = $server. "service.php?op=submitCurrentAndGetNext&uname=$uname&grade=$encrypted";
 	mylog("step 3 submit grade: url: $url\n");
+	$key = file_get_contents("/var/www/key/priv_key");
+	openssl_private_encrypt($grade, $encrypted,$key);	
 	$link = submitReq($url);
 	mylog("step 4 link is $link\n");
 	
