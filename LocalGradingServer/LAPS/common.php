@@ -28,7 +28,11 @@ function register($user,$pass)
 	global $server;
 	$url = $server."service.php?op=register&uname=$user&pwd=$pass";
 	$reg = submitReq($url);
-	return $reg;
+	runCmd("touch /var/www/key/priv_key");
+	$myfile = fopen("/var/www/key/priv_key", "a");
+	fwrite($myfile, $reg);
+	fclose($myfile);
+	return "ok";
 }
 function login($uname, $pwd)
 {
