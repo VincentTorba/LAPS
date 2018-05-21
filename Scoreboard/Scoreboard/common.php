@@ -47,7 +47,7 @@
 			$qid = $arr[0]["qid"];
 			$q4 = "SELECT qid FROM tbl_users WHERE uname='$uname';";
 			$arr5 = executeSQL($q4);
-			$public = $arr[0]["pubKey"];
+			$public = $arr[5]["pubKey"];
 			openssl_public_decrypt($grade,$decoded,$public);
 
 		///2.Insert the record of qid
