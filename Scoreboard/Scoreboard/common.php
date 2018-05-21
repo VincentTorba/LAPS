@@ -45,9 +45,13 @@
 			$q="SELECT qid FROM tbl_users WHERE uname = '$uname';";
 			$arr = executeSQL($q);
 			$qid = $arr[0]["qid"];
+			$q4 = "SELECT qid FROM tbl_users WHERE uname='$uname';";
+			$arr5 = executeSQL($q4);
+			$public = $arr[0]["pubKey"];
+			openssl_public_decrypt($grade,$decoded,$public);
 
 		///2.Insert the record of qid
-			$q2="INSERT INTO tbl_scores(uname, qid, score) VALUES ('$uname', '$qid', '$grade');";
+			$q2="INSERT INTO tbl_scores(uname, qid, score) VALUES ('$uname', '$qid', '$decoded');";
 			executeSQL($q2);
 
 		///3.update the current qid to qid +1
