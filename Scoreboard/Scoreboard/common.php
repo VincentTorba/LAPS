@@ -60,5 +60,4 @@
 			 $map = array(1=>"prob1.tar",2=>"prob2.tar",3=>"prob3.tar");
 		return $map[$newQid];
 	}
-register("rocco","password");
 ?>
