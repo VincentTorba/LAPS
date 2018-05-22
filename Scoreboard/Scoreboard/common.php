@@ -44,23 +44,23 @@
 			$q="SELECT qid FROM tbl_users WHERE uname = '$uname';";
 			$arr = executeSQL($q);
 			$qid = $arr[0]["qid"];
-			$q4 = "SELECT pubkey FROM tbl_users WHERE uname='$uname';";
+			$q4 = "SELECT pubKey FROM tbl_users WHERE uname='$uname';";
 			$arr5 = executeSQL($q4);
 			$public = $arr5[0]["pubKey"];
-			openssl_public_decrypt($grade,$decoded,$public);
-
-		///2.Insert the record of qid
-			$q2="INSERT INTO tbl_scores(uname, qid, score) VALUES ('$uname', '$qid', '$decoded');";
-			executeSQL($q2);
-
-		///3.update the current qid to qid +1
-			$newQid = $qid + 1;
-			$q3 = " UPDATE tbl_users SET qid = $newQid WHERE uname = '$uname';";
-			executeSQL($q3);
-			
-
-		///4. return the download zip file hard code it
-			 $map = array(1=>"prob1.tar",2=>"prob2.tar",3=>"prob3.tar");
-		return $map[$newQid];
+			if(openssl_public_decrypt($grade,$decoded,$public)){
+				///2.Insert the record of qid
+				$q2="INSERT INTO tbl_scores(uname, qid, score) VALUES ('$uname', '$qid', '$decoded');";
+				executeSQL($q2);
+				///3.update the current qid to qid +1
+				$newQid = $qid + 1;
+				$q3 = " UPDATE tbl_users SET qid = $newQid WHERE uname = '$uname';";
+				executeSQL($q3);
+				///4. return the download zip file hard code it
+			 	$map = array(1=>"prob1.tar",2=>"prob2.tar",3=>"prob3.tar");
+				return $map[$newQid];
+			} else{
+				return "error";
+			}
+		
 	}
 ?>
