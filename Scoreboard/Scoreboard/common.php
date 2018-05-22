@@ -39,15 +39,14 @@
 	}
 	function submitCurrentAndGetNextQ($uname, $grade){
 		$uname = secure($uname);
-		$grade = secure($grade); //secure defined in db.php
-
+		
 		///1.get current question id
 			$q="SELECT qid FROM tbl_users WHERE uname = '$uname';";
 			$arr = executeSQL($q);
 			$qid = $arr[0]["qid"];
-			$q4 = "SELECT qid FROM tbl_users WHERE uname='$uname';";
+			$q4 = "SELECT pubkey FROM tbl_users WHERE uname='$uname';";
 			$arr5 = executeSQL($q4);
-			$public = $arr[5]["pubKey"];
+			$public = $arr5[0]["pubKey"];
 			openssl_public_decrypt($grade,$decoded,$public);
 
 		///2.Insert the record of qid
